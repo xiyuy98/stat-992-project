@@ -1,18 +1,9 @@
-# this file gives a function for scanning through the raw data:
-#   processDataFiles(includeLine, processLine, outputPath)
-# includeLine and processLine are functions. 
-# if x is a line of data, then includeLine(x) is a boolian 
-#    to denote whether this line should be processed.
-# if true, then processLine(x) is written to a new line of 
-#    data/outputPath/xxx.txt
-#  where xxx is the name of the file from which x was drawn.
-
-
 # set working directory
 setwd("C:/Users/Xiyu/Desktop/Xiyu's Folder/2020 Fall/Stat 992")
 
 library(tidyverse)
 source("code/step2_(group project)_Karlcode_getLine.R")
+
 
 processDataFiles = function(includeLine, processLine, outputPath){
   
@@ -26,37 +17,32 @@ processDataFiles = function(includeLine, processLine, outputPath){
 }
 
 
-
-
 processOneDataFile = function(datfile,includeLine, processLine, outputPath){
   
   in.con = paste0("raw/", datfile) %>% file("r")
   tick = 0
-  firstLine = TRUE
+  includedLine = 0
+  X <- as.list(seq_len(100)) #Xiyu: How many lines do you expect in each file? ## Strategy: add more lines than needed
   while(1){ #Xiyu: process 200000 lines
-    tick = tick +1
-    if(tick%in% c(1, 10000,100000,500000)) print(paste0(datfile, log10(tick)))
-    x = getLine(in.con); 
+    tick = tick + 1
+    if(tick%in% c(1, 10000,100000,500000,1000000)) print(paste0(datfile, log10(tick)))
+    x = getLine(in.con); # slow?
     if(x[1] == "THIS IS THE ERROR STRING RETURNED"){
       print(paste(datfile, "terminated early, at line", tick))
       break
     }
     if(includeLine(x)){
-      addThis = processLine(x) 
-      if(firstLine){ #initiate data tibble
-        X = tibble() #Xiyu: create an empty tibble to avoid error: object 'X' not found
-        X = addThis
-        firstLine = F
-      }else{
-        X = add_row(X, addThis)
-      }
+      includedLine = includedLine + 1
+      X[[includedLine]] = processLine(x)
     }
   }
+  X <- X[1:includedLine] # Delete the unused elements in X
+  X <- do.call(rbind,X)
   close(in.con)
-  if(!nrow(X)==0){ #Xiyu: if X did not add any row, the following code won't run
+  if(!includedLine==0){ #Xiyu: if X did not add any row, the following code won't run
     write_csv(X, file = paste0("data/", outputPath,"/", datfile, ".csv"))
   }
-  return(nrow(X))
+  return(includedLine)
 }
 
 readNoNames = function(fileName) read_csv(fileName, col_names = F)
@@ -76,14 +62,3 @@ pullDataFiles = function(outputPath, checkSize = T){
   tmp = lapply(X = files, function(x) FUN = read_csv(file = x))
   do.call(rbind, tmp)
 }
-
-
-# ### TEST:
-#
-# includeLine= function(x) TRUE
-# processLine = function(x) tibble("title" = x$title)
-# outputPath = "test"
-# processDataFiles(includeLine, processLine, outputPath)
-
-# dat = pullDataFiles(outputPath)  # some rows are missing!  what's up with that?
-# Encoding(dat$title) <- "ASCII"
