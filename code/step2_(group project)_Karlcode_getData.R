@@ -33,7 +33,7 @@ processOneDataFile = function(datfile,includeLine, processLine, outputPath){
   in.con = paste0("raw/", datfile) %>% file("r")
   tick = 0
   firstLine = TRUE
-  while(1){ #Xiyu: process 200000 lines
+  while(tick<200001){ #process all lines in a file
     tick = tick +1
     if(tick%in% c(1, 10000,100000,500000)) print(paste0(datfile, log10(tick)))
     x = getLine(in.con); 
@@ -76,14 +76,3 @@ pullDataFiles = function(outputPath, checkSize = T){
   tmp = lapply(X = files, function(x) FUN = read_csv(file = x))
   do.call(rbind, tmp)
 }
-
-
-# ### TEST:
-#
-# includeLine= function(x) TRUE
-# processLine = function(x) tibble("title" = x$title)
-# outputPath = "test"
-# processDataFiles(includeLine, processLine, outputPath)
-
-# dat = pullDataFiles(outputPath)  # some rows are missing!  what's up with that?
-# Encoding(dat$title) <- "ASCII"

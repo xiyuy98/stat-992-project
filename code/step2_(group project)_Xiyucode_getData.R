@@ -23,7 +23,7 @@ processOneDataFile = function(datfile,includeLine, processLine, outputPath){
   tick = 0
   includedLine = 0
   X <- as.list(seq_len(100)) #Xiyu: How many lines do you expect in each file? ## Strategy: add more lines than needed
-  while(tick < 200001){ #Xiyu: process 200000 lines
+  while(1){ #Xiyu: process 200000 lines
     tick = tick + 1
     if(tick%in% c(1, 10000,100000,500000,1000000)) print(paste0(datfile, log10(tick)))
     x = getLine(in.con); # slow?
@@ -40,7 +40,7 @@ processOneDataFile = function(datfile,includeLine, processLine, outputPath){
   X <- do.call(rbind,X)
   close(in.con)
   if(!includedLine==0){ #Xiyu: if X did not add any row, the following code won't run
-    saveRDS(X, file = paste0("data/", outputPath,"/", datfile, ".rds"))
+    write_csv(X, file = paste0("data/", outputPath,"/", datfile, ".csv"))
   }
   return(includedLine)
 }

@@ -2,7 +2,7 @@
 setwd("C:/Users/Xiyu/Desktop/Xiyu's Folder/2020 Fall/Stat 992")
 
 library(tidyverse)
-source("code/step2_(group project)_Karlcode_getData.R")
+source("code/step2_(group project)_Xiyucode_getData.R")
 
 start_time = Sys.time()
 
