@@ -2,7 +2,7 @@
 setwd("C:/Users/Xiyu/Desktop/Xiyu's Folder/2020 Fall/Stat 992")
 
 library(tidyverse)
-source("code/step2_(group project)_Xiyucode_getData.R")
+source("code/step2_(group project)_Karlcode_getData.R")
 
 start_time = Sys.time()
 
@@ -24,19 +24,7 @@ processLine = function(x) tibble(
   journalVolume = x$journalVolume,
   journalPages = x$journalPages)
 
-# tibble(id = x$id,
-# title = x$title,
-# abstract = x$paperAbstract,
-# year = x$year,
-# field = x$fieldsOfStudy,
-# author = x$authors,
-# inCitation = x$inCitations,
-# outCitation = x$outCitations,
-# journalName = x$journalName,
-# journalVolume = x$journalVolume,
-# journalPages = x$journalPages)
-
-outputPath = "FDR_test"
+outputPath = "FDR_180_186"
 processDataFiles(includeLine, processLine, outputPath)
 
 end_time = Sys.time()
