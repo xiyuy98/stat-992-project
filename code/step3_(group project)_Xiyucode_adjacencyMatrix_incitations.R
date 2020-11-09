@@ -18,7 +18,7 @@ for (i in 1:length(files)){
 }
 df = do.call(rbind,df)
 
-# identifier
+# identifier_in
 inCitations = df %>% 
   select(inCitation) %>% 
   unnest_tokens(word, inCitation) %>% 
@@ -29,25 +29,26 @@ paper_ids = df %>%
   rbind(inCitations) %>% 
   unique()
 
-identifiers = paper_ids %>% 
-  mutate(identifier = 1:nrow(paper_ids))
+identifiers_in = paper_ids %>% 
+  mutate(identifier_in = 1:nrow(paper_ids))
 
 # edge list
-edgeList = df %>% 
+edgeList_in = df %>% 
   select(id, inCitation) %>% 
   unnest_tokens(word, inCitation) %>% 
   rename(inCitation = word) %>% 
-  left_join(identifiers, by = "id") %>% 
-  select(identifier, inCitation) %>% 
-  rename(id = identifier)
+  left_join(identifiers_in, by = "id") %>% 
+  select(identifier_in, inCitation) %>% 
+  rename(id = identifier_in)
 
-edgeList = edgeList %>% 
-  left_join(identifiers, by=c("inCitation" = "id")) %>% 
-  select(id, identifier) %>% 
-  rename(inCitation = identifier)
+edgeList_in = edgeList_in %>% 
+  left_join(identifiers_in, by=c("inCitation" = "id")) %>% 
+  select(id, identifier_in) %>% 
+  rename(inCitation = identifier_in)
 
 # adjacency matrix
-adjMatrix = cast_sparse(edgeList, id, inCitation)
+adjMatrix = cast_sparse(edgeList_in, id, inCitation)
 
 # save adjacency matrix as rds file
 saveRDS(adjMatrix, file = "data/incitation_adjMatrix.rds")
+saveRDS(identifiers_in, file = "data/identifiers_in.rds")

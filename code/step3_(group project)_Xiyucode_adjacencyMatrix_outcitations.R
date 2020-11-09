@@ -29,25 +29,26 @@ paper_ids = df %>%
   rbind(outCitations) %>% 
   unique()
 
-identifiers = paper_ids %>% 
-  mutate(identifier = 1:nrow(paper_ids))
+identifiers_out = paper_ids %>% 
+  mutate(identifier_out = 1:nrow(paper_ids))
 
 # edge list
-edgeList = df %>% 
+edgeList_out = df %>% 
   select(id, outCitation) %>% 
   unnest_tokens(word, outCitation) %>% 
   rename(outCitation = word) %>% 
-  left_join(identifiers, by = "id") %>% 
-  select(identifier, outCitation) %>% 
-  rename(id = identifier)
+  left_join(identifiers_out, by = "id") %>% 
+  select(identifier_out, outCitation) %>% 
+  rename(id = identifier_out)
 
-edgeList = edgeList %>% 
-  left_join(identifiers, by=c("outCitation" = "id")) %>% 
-  select(id, identifier) %>% 
-  rename(outCitation = identifier)
+edgeList_out = edgeList_out %>% 
+  left_join(identifiers_out, by=c("outCitation" = "id")) %>% 
+  select(id, identifier_out) %>% 
+  rename(outCitation = identifier_out)
 
 # adjacency matrix
-adjMatrix = cast_sparse(edgeList, id, outCitation)
+adjMatrix = cast_sparse(edgeList_out, id, outCitation)
 
 # save adjacency matrix as rds file
 saveRDS(adjMatrix, file = "data/outcitation_adjMatrix.rds")
+saveRDS(identifiers_out, file = "data/identifiers_out.rds")
