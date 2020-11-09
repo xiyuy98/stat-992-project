@@ -20,6 +20,8 @@ for (i in 1:length(files)){
 df = do.call(rbind,df)
 
 # identifier
+df$abstract = str_replace_all(df$abstract, "[:digit:]", "")
+
 abstracts = df %>% 
   select(abstract) %>% 
   unnest_tokens(word, abstract) %>% 
