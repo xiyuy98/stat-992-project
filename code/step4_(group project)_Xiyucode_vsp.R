@@ -42,8 +42,8 @@ hist(rowSums(A_abs))
 hist(log10(cs_abs[cs_abs>1]))
 
 # apply vsp
-fa_out = vsp(A_out, rank = 5, scale = TRUE, rescale = FALSE)
-plot_varimax_z_pairs(fa_out, 1:5)
+fa_out = vsp(A_out, rank = 3, scale = TRUE, rescale = FALSE)
+plot_varimax_z_pairs(fa_out, 1:3)
 
 fa_in = vsp(A_in, rank = 3, scale = TRUE, rescale = FALSE)
 plot_varimax_z_pairs(fa_in, 1:3)
