@@ -24,5 +24,5 @@ id_out = id_out$id
 A_abs_out = A_abs[id_out, ]
 
 # apply bff on outCitation adjacency matrix
-keypapers_out = bff(fa_out$Z, A_abs_out, 20) %>% t ## cluster by rows (fa$Z)
+keypapers_out = bff(fa_out$Z, A_abs_out, 25) %>% t ## cluster by rows (fa$Z)
 keypapers_out %>% t %>% View
