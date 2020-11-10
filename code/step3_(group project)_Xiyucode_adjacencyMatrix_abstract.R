@@ -8,6 +8,7 @@ library(dplyr)
 library(readr)
 library(tidyverse)
 library(tidytext)
+library(SnowballC)
 data(stop_words)
 
 # read in data
@@ -20,26 +21,21 @@ for (i in 1:length(files)){
 df = do.call(rbind,df)
 
 # identifier
-df$abstract = str_replace_all(df$abstract, "[:digit:]", "")
-
-abstracts = df %>% 
-  select(abstract) %>% 
-  unnest_tokens(word, abstract) %>% 
-  anti_join(stop_words) %>% 
-  rename(id = word)
-
 paper_ids = df %>% 
   select(id) %>% 
-  rbind(abstracts) %>% 
   unique()
 
 identifiers = paper_ids %>% 
   mutate(identifier = 1:nrow(paper_ids))
 
 # edge list
+df$abstract = str_replace_all(df$abstract, "[:digit:]", "")
+
 edgeList = df %>% 
   select(id, abstract) %>% 
   unnest_tokens(word, abstract) %>% 
+  anti_join(stop_words) %>% 
+#  mutate(word = wordStem(word)) %>% 
   rename(abstract = word) %>% 
   left_join(identifiers, by = "id") %>% 
   select(identifier, abstract) %>% 
