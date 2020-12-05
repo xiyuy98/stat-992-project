@@ -18,33 +18,33 @@ for (i in 1:length(files)){
 }
 df = do.call(rbind,df)
 
-# identifier_in
+# create identifiers for all the paper id (FDR paper + inCitation paper)
 inCitations = df %>% 
   select(inCitation) %>% 
   unnest_tokens(word, inCitation) %>% 
-  rename(id = word)
+  rename(id = word) ## select all the inCitation paper id
 
 paper_ids = df %>% 
   select(id) %>% 
   rbind(inCitations) %>% 
-  unique()
+  unique() ## select all the FDR paper id and rbind with inCitation paper id
 
 identifiers_in = paper_ids %>% 
-  mutate(identifier_in = 1:nrow(paper_ids))
+  mutate(identifier_in = 1:nrow(paper_ids)) ## create identifiers
 
-# edge list
+# create an edge list, mapping each FDR paper to its inCitation paper
 edgeList_in = df %>% 
   select(id, inCitation) %>% 
   unnest_tokens(word, inCitation) %>% 
   rename(inCitation = word) %>% 
   left_join(identifiers_in, by = "id") %>% 
   select(identifier_in, inCitation) %>% 
-  rename(id = identifier_in)
+  rename(id = identifier_in) ## change all FDR paper ids to identifiers
 
 edgeList_in = edgeList_in %>% 
   left_join(identifiers_in, by=c("inCitation" = "id")) %>% 
   select(id, identifier_in) %>% 
-  rename(inCitation = identifier_in)
+  rename(inCitation = identifier_in) ## change all inCitation paper ids to identifiers.
 
 # adjacency matrix
 adjMatrix = cast_sparse(edgeList_in, id, inCitation)

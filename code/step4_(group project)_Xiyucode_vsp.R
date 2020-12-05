@@ -42,17 +42,31 @@ hist(rowSums(A_abs))
 hist(log10(cs_abs[cs_abs>1]))
 
 # apply vsp
-fa_out = vsp(A_out, rank = 6, scale = TRUE, rescale = FALSE)
-plot_varimax_z_pairs(fa_out, 1:6)
+fa_out = vsp(A_out, rank = 7, scale = TRUE, rescale = FALSE)
+plot_varimax_z_pairs(fa_out, 1:7)
 
-fa_in = vsp(A_in, rank = 5, scale = TRUE, rescale = FALSE)
-plot_varimax_z_pairs(fa_in, 1:5)
+fa_in = vsp(A_in, rank = 3, scale = TRUE, rescale = FALSE)
+plot_varimax_z_pairs(fa_in, 1:3)
 
-fa_abs = vsp(A_abs, rank = 4, scale = TRUE, rescale = FALSE)
-plot_varimax_z_pairs(fa_abs, 1:4)
+# fa_abs = vsp(A_abs, rank = 4, scale = TRUE, rescale = FALSE)
+# plot_varimax_z_pairs(fa_abs, 1:4)
 
 # diagnostics
 plot(fa_out$d)
+
+eigenValues = fa_out$d
+eigenValues_df = as.data.frame(eigenValues)
+eigenValues_df = eigenValues_df %>% mutate(Index = 1:nrow(eigenValues_df))
+
+ggplot(eigenValues_df, 
+       mapping = aes(x = Index, 
+                     y = eigenValues)) + 
+  geom_point(mapping = aes(x = Index, 
+                           y = eigenValues, 
+                           col = colors()[631]),
+             show.legend = FALSE) +
+  theme_classic()
+
 plot(fa_out$u[,1])
 str(fa_out)
 plot(fa_out$u[,1])
@@ -61,4 +75,15 @@ max(A_out@x)
 
 plot(fa_in$d)
 
-plot(fa_abs$d)
+eigenValues = fa_in$d
+eigenValues_df = as.data.frame(eigenValues)
+eigenValues_df = eigenValues_df %>% mutate(Index = 1:nrow(eigenValues_df))
+
+ggplot(eigenValues_df, 
+       mapping = aes(x = Index, 
+                     y = eigenValues)) + 
+  geom_point(mapping = aes(x = Index, 
+                           y = eigenValues, 
+                           color = darkgreen),
+             show.legend = FALSE) +
+  theme_classic()
