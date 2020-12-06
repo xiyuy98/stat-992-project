@@ -9,9 +9,24 @@ source("code/step2_(group project)_Karlcode_getData.R")
 
 start_time = Sys.time()
 
+# method 1 (Error: Internal error in `vec_proxy_assign_opts()`: `proxy` of type `double` incompatible with `value` proxy of type `NULL`)
+# firstPaper_id <- "fcef2258a963f3d3984a486185ddc4349c43aa35"
+# return(firstPaper_id %in% x$outCitation)
+
+# method 2 (Super Slow)
+# firstPaper_inCit <- readRDS(file = "data/firstPaper_inCit.RDS")
+# inCit <- firstPaper_inCit$inCitation
+# inCit <- paste(inCit, collapse = "; ")
+# if (x$id == 0) return(F)
+# grepl(x$id, inCit)
+
+# method 3 (Error: Internal error in `vec_proxy_assign_opts()`: `proxy` of type `double` incompatible with `value` proxy of type `NULL`)
+# firstPaper_inCit <- readRDS(file = "data/firstPaper_inCit.RDS")
+# inCit <- firstPaper_inCit$inCitation
+# return(x$id %in% inCit)
+
 includeLine = function(x) {
-  if(nchar(x$paperAbstract) == 0) return(F) 
-  grepl("false discovery rate|False Discovery Rate|False discovery rate", x$paperAbstract)
+  
 }
 
 processLine = function(x) tibble(

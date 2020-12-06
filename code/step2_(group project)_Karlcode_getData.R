@@ -33,6 +33,7 @@ processOneDataFile = function(datfile,includeLine, processLine, outputPath){
   in.con = paste0("raw/", datfile) %>% file("r")
   tick = 0
   firstLine = TRUE
+  X = tibble() #Xiyu: create an empty tibble to avoid error: object 'X' not found
   while(1){ #process all lines in a file
     tick = tick +1
     if(tick%in% c(1, 10000,100000,500000)) print(paste0(datfile, log10(tick)))
@@ -44,7 +45,6 @@ processOneDataFile = function(datfile,includeLine, processLine, outputPath){
     if(includeLine(x)){
       addThis = processLine(x) 
       if(firstLine){ #initiate data tibble
-        X = tibble() #Xiyu: create an empty tibble to avoid error: object 'X' not found
         X = addThis
         firstLine = F
       }else{
