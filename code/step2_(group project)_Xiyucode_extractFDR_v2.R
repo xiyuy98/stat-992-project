@@ -25,8 +25,28 @@ start_time = Sys.time()
 # inCit <- firstPaper_inCit$inCitation
 # return(x$id %in% inCit)
 
+# method 4 (Super Slow)
+
+# firstPaper_inCit <- readRDS(file = "data/firstPaper_inCit.RDS")
+# inCit <- firstPaper_inCit$inCitation
+# if(nchar(x$id) == 0) return(F) 
+# grepl(x$id, inCit)
+
+# method 5 (Error: Internal error in `vec_proxy_assign_opts()`: `proxy` of type `double` incompatible with `value` proxy of type `NULL`.)
+# firstPaper_inCit <- readRDS(file = "data/firstPaper_inCit.RDS")
+# inCit <- firstPaper_inCit$inCitation
+# if(nchar(x$id) == 0) return(F) 
+# return(any(x$id %in% inCit))
+
+# method 6
+# firstPaper_id <- "fcef2258a963f3d3984a486185ddc4349c43aa35"
+# if(any(grepl(firstPaper_id, x$outCitation))) return(T)
+# return(F)
+
+firstPaper_id <- "fcef2258a963f3d3984a486185ddc4349c43aa35"
+
 includeLine = function(x) {
-  
+  return(firstPaper_id %in% x$outCitation)
 }
 
 processLine = function(x) tibble(
@@ -42,7 +62,7 @@ processLine = function(x) tibble(
   journalVolume = x$journalVolume,
   journalPages = x$journalPages)
 
-outputPath = "FDR_000_001"
+outputPath = "FDR_000_180"
 processDataFiles(includeLine, processLine, outputPath)
 
 end_time = Sys.time()

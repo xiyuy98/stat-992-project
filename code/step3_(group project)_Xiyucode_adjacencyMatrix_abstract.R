@@ -12,7 +12,7 @@ library(SnowballC)
 data(stop_words)
 
 # read in data
-files <- list.files(path = "data/fdr", pattern = "*.csv", full.names = T)
+files <- list.files(path = "data/FDR_000_180", pattern = "*.csv", full.names = T)
 df <- as.list(seq_len(length(files)))
 for (i in 1:length(files)){
   data = read.csv(files[i])
@@ -45,4 +45,4 @@ edgeList = df %>%
 adjMatrix = cast_sparse(edgeList, id, abstract)
 
 # save adjacency matrix as rds file
-saveRDS(adjMatrix, file = "data/abstract_adjMatrix.rds")
+saveRDS(adjMatrix, file = "data/abstract_adjMatrix_new.rds")

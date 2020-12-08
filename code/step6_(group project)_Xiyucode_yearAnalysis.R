@@ -31,3 +31,5 @@ years$paperNum_mean = rowMeans(years[,-1])
 years$paperNum_sd = apply(years[, 2:20], 1, sd, na.rm = TRUE)
 years$paper_ratio = years$paperNum_sd/years$paperNum_mean ## compute the ratio of standard deviation/mean
 max(years$paper_ratio, na.rm = TRUE)
+View(years %>% select(year, paperNum_mean, paperNum_sd, paper_ratio))
+saveRDS(years, file = "data/years.RDS")

@@ -3,6 +3,9 @@
 # set working directory
 setwd("C:/Users/Xiyu/Desktop/Xiyu's Folder/2020 Fall/Stat 992")
 
+# source file
+source("code/step3_(group project)_Xiyucode_adjacencyMatrix_abstract.R")
+
 # packages
 library(dplyr)
 library(readr)
@@ -10,13 +13,21 @@ library(tidyverse)
 library(tidytext)
 
 # read in data
-files <- list.files(path = "data/fdr", pattern = "*.csv", full.names = T)
+files <- list.files(path = "data/FDR_000_180", pattern = "*.csv", full.names = T)
 df <- as.list(seq_len(length(files)))
 for (i in 1:length(files)){
   data = read.csv(files[i])
   df[[i]] = data
 }
 df = do.call(rbind,df)
+
+abstract_ids <- edgeList$id %>% unique()
+abstract_ids <- as.data.frame(abstract_ids)
+abstract_ids <- abstract_ids %>% 
+  left_join(identifiers, by=c("abstract_ids"="identifier")) %>% 
+  select(id) ## find out papers included in the abstract network
+
+df <- abstract_ids %>% left_join(df)
 
 # identifier
 outCitations = df %>% 
@@ -50,5 +61,5 @@ edgeList_out = edgeList_out %>%
 adjMatrix = cast_sparse(edgeList_out, id, outCitation)
 
 # save adjacency matrix as rds file
-saveRDS(adjMatrix, file = "data/outcitation_adjMatrix.rds")
-saveRDS(identifiers_out, file = "data/identifiers_out.rds")
+saveRDS(adjMatrix, file = "data/outcitation_adjMatrix_new.rds")
+saveRDS(identifiers_out, file = "data/identifiers_out_new.rds")

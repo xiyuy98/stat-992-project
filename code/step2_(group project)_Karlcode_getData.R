@@ -48,7 +48,7 @@ processOneDataFile = function(datfile,includeLine, processLine, outputPath){
         X = addThis
         firstLine = F
       }else{
-        X = add_row(X, addThis)
+        try({X = add_row(X, addThis)},)
       }
     }
   }

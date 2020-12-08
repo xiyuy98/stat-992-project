@@ -12,9 +12,9 @@ library(Matrix)
 library(vsp)
 
 # read in data
-A_out = readRDS("data/outcitation_adjMatrix.rds")
-A_in = readRDS("data/incitation_adjMatrix.rds")
-A_abs = readRDS("data/abstract_adjMatrix.rds")
+A_out = readRDS("data/outcitation_adjMatrix_new.rds")
+A_in = readRDS("data/incitation_adjMatrix_new.rds")
+A_abs = readRDS("data/abstract_adjMatrix_new.rds")
 
 # inspect data
 cs_out = colSums(A_out)
@@ -33,20 +33,20 @@ dim(A_in)
 hist(rowSums(A_in))
 hist(log(cs_in[cs_in>1]))
 
-cs_abs = colSums(A_abs)
-A_abs = A_abs[, cs_abs > 5]
-A_abs[1:5,1:10]
-str(A_abs)
-dim(A_abs)
-hist(rowSums(A_abs))
-hist(log10(cs_abs[cs_abs>1]))
+# cs_abs = colSums(A_abs)
+# A_abs = A_abs[, cs_abs > 5]
+# A_abs[1:5,1:10]
+# str(A_abs)
+# dim(A_abs)
+# hist(rowSums(A_abs))
+# hist(log10(cs_abs[cs_abs>1]))
 
 # apply vsp
-fa_out = vsp(A_out, rank = 7, scale = TRUE, rescale = FALSE)
-plot_varimax_z_pairs(fa_out, 1:7)
+fa_out = vsp(A_out, rank = 5, scale = TRUE, rescale = FALSE)
+plot_varimax_z_pairs(fa_out, 1:5)
 
-fa_in = vsp(A_in, rank = 3, scale = TRUE, rescale = FALSE)
-plot_varimax_z_pairs(fa_in, 1:3)
+fa_in = vsp(A_in, rank = 7, scale = TRUE, rescale = FALSE)
+plot_varimax_z_pairs(fa_in, 1:7)
 
 # fa_abs = vsp(A_abs, rank = 4, scale = TRUE, rescale = FALSE)
 # plot_varimax_z_pairs(fa_abs, 1:4)
