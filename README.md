@@ -15,12 +15,13 @@ Contributors:
   * [Citation in different fields](https://github.com/xiyuy98/stat-992-project#citation-in-different-fields)
   * [Further look into clusters](https://github.com/xiyuy98/stat-992-project#further-look-into-clusters)
 * [Conclusion](https://github.com/xiyuy98/stat-992-project#conclusion)
+* [Reference](https://github.com/xiyuy98/stat-992-project#reference)
 
 ## Background
 
 This is a class project for Statistics 992 Data Science with Graphs which is taught by Professor Karl Rohe. This project is motivated by the following facts: Many current research on citation networks focus on general citation patterns only in the field of statistics. A good summary of the previous studies are provided by Radicchi, Fortunato, and Vespignani (2012).  However, to our knowledge, very few work (if any) focuses on a specific statistical technique, tracking its citation patterns in different fields of study over time.
 
-In this project, we study the citation patterns of false discovery rate (FDR). We would like to understand the citation changes of Benjamini and Hochberg's FDR paper (1995) over time and across different fields. We name such changes as the paper's diffusion pattern because its influence spreads across the citation network over time. Specifically, we observe whether a time lag appears and compare the time lag difference across research fields. For time lag, we mean whether there exists a gap between the time when the paper was published and when it gained its popularity. We then plot the shape of the citation patterns in each field. We observe that diffusion pattern in one field differs based on the field's closeness to statistics. 
+In this project, we study the citation patterns of false discovery rate (FDR). We would like to understand the citation changes of [Benjamini and Hochberg's FDR paper (1995)](https://www.jstor.org/stable/pdf/2346101.pdf?casa_token=qlxs1uyCcj8AAAAA:G5YA-dmXlC4ejoC1OVLKHTq8MvccB-zQtXSZI8VHg9fgHAH9n4B0NESP200mDtLf8pmLh-MZ3fV1cWZhRj7h2isC_MpCZhAJCGhSHScvGW54Bb69pIU) over time and across different fields. We name such changes as the paper's diffusion pattern because its influence spreads across the citation network over time. Specifically, we observe whether a time lag appears and compare the time lag difference across research fields. For time lag, we mean whether there exists a gap between the time when the paper was published and when it gained its popularity. We then plot the shape of the citation patterns in each field. We observe that diffusion pattern in one field differs based on the field's closeness to statistics. 
 
 ## Data
 
@@ -232,3 +233,14 @@ There are four main findings in our project:
 
 + The "bridge" papers exist in the fields other than Statistics. But unfortunately, this phenomenon cannot be well studied base on our current dataset.
 
+## Reference
+
+Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate: a practical and powerful approach to multiple testing. Journal of the Royal statistical society: series B (Methodological), 57(1), 289-300. 
+
+Radicchi, Filippo, Santo Fortunato, and Alessandro Vespignani. "Citation networks." In Models of science dynamics, pp. 233-257. Springer, Berlin, Heidelberg, 2012.
+
+Wang, Song, and Karl Rohe. "DON'T MIND THE (EIGEN) GAP."
+
+Rohe, Karl, and Muzhe Zeng. "Vintage Factor Analysis with Varimax Performs Statistical Inference." arXiv preprint arXiv:2004.05387 (2020).
+
+Ji, Pengsheng, and Jiashun Jin. "Coauthorship and citation networks for statisticians." The Annals of Applied Statistics 10, no. 4 (2016): 1779-1812.
