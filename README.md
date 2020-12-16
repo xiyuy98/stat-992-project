@@ -244,7 +244,7 @@ There are four main findings in our project:
 
 + The diffusion patterns are different across research fields, but most patterns are bell-shaped with different flatness.
 
-+ Bridge papers exist in the fields other than Sstatistics. But unfortunately, this phenomenon cannot be well studied based on our current dataset.
++ Bridge papers exist in the fields other than statistics. But unfortunately, this phenomenon cannot be well studied based on our current dataset.
 
 ## Reference
 
