@@ -27,7 +27,7 @@ In this project, we study the citation patterns of false discovery rate (FDR). W
 
 ### Data description
 
-We used the Semantic Scholar's records, which gives information on research papers. The corpus is composed of rich abstracts, bibliographic references, and structured full texts. The full text comes with automatically detected inline citations, figures, and tables. Also, each citation is linked to its corresponding paper. In Semantic Scholar's dataset, papers from hundreds of academic publishers and digital archives are aggregated into a single source. With the well-developed tool, we downloaded and configured the whole dataset with 220 million papers and over 100Gb meta data. They are well prepared, machine-readable academic texts
+We used the [Semantic Scholar's records](http://s2-public-api-prod.us-west-2.elasticbeanstalk.com/corpus/), which gives information on research papers. The corpus is composed of rich abstracts, bibliographic references, and structured full texts. The full text comes with automatically detected inline citations, figures, and tables. Also, each citation is linked to its corresponding paper. In Semantic Scholar's dataset, papers from hundreds of academic publishers and digital archives are aggregated into a single source. With the well-developed tool, we downloaded and configured the whole dataset with 220 million papers and over 100Gb meta data. They are well prepared, machine-readable academic texts
 
 ### Data collection
 
@@ -106,7 +106,7 @@ ggplot(data=citYear_total_out, aes(x=year, y=ratio)) +
 
 #### Find clusters
 
-To find how many clusters are included in the networks, we applied Vintage Sparse principal component analysis (VSP) to the matrices built from our inCitation and outCitation networks. For example, by applying VSP on the data collected by our second method, we found seven clusters in the inCitation network. 
+To find how many clusters are included in the networks, we applied [Vintage Sparse principal component analysis (VSP)](https://arxiv.org/pdf/2004.05387.pdf) to the matrices built from our inCitation and outCitation networks. For example, by applying VSP on the data collected by our second method, we found seven clusters in the inCitation network. 
 
 ![image](/image/vsp_in_(method2).png)
 
@@ -119,7 +119,7 @@ plot_varimax_z_pairs(fa_in, 1:7)
 
 #### Contextualize clusters
 
-After we decided the number of clusters in each network, we applied the best feature function on the results of VSP and the paper-term matrices obtained by tokenizing abstracts. In this way, we contextualized our data and gave each cluster a name. We present the results of inCitation network obtained by the second data collection method:
+After we decided the number of clusters in each network, we applied the [best feature function](https://www.stat.uga.edu/sites/default/files/psji/SCC-disc3.pdf) on the results of VSP and the paper-term matrices obtained by tokenizing abstracts. In this way, we contextualized our data and gave each cluster a name. We present the results of inCitation network obtained by the second data collection method:
 
 For the inCitation network, we named the 7 meaningful clusters as: 
 
@@ -156,8 +156,7 @@ For the inCitation network, we named the 7 meaningful clusters as:
 
 We used the following code to do the contextualization:
 
-The function, bff(), is developed by Alex Hayes and Fan Chen, and posted under Karl 
-Rohe's GitHub repository, vsp.
+The function, bff(), is developed by Alex Hayes and Fan Chen, and posted under [Rohe Lab's GitHub repository, vsp](https://github.com/RoheLab/vsp).
 
 ```r
 # function, bff()
@@ -225,7 +224,7 @@ In the above graph, round dots are those cited the original FDR paper whereas th
 
 There are four main findings in our project:
 
-+ There is almost no time lag( less than 3 years)  for FDR, however the lag do exist in application fields outside of Statistics (e.g. genetic, engineering).
++ There is almost no time lag (less than 3 years) for FDR, however the lag do exist in application fields outside of Statistics (e.g. genetic, engineering).
 
 + The overall diffusion pattern for FDR is partially Bell-shaped and the increasing rate of the paper's popularity slows down in the past 5 years.
 
