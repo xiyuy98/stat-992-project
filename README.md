@@ -16,7 +16,7 @@ From the Semantic Scholar's records, we pick all research papers that mention FD
 
 We used the following R code to extract FDR papers from the Semantic Scholar's records. The code is adapted from Professor Karl Rohe's code:
 
-```{r}
+```r
 includeLine = function(x) {
   if(nchar(x$paperAbstract) == 0) return(F) 
   grepl("false discovery rate|False Discovery Rate|False discovery rate", x$paperAbstract)
