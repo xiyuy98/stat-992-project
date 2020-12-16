@@ -182,8 +182,8 @@ keypapers_in = bff(fa_in$Z, A_abs_in, 20) %>% t
 ```
 #### Citation trends within clusters
 
-Similar to what we did by plotting the paper's overall citation trends, we plotted the citation trends within each clusters. We display the citation trends of seven clusters in the inCitation network below. This network is obtained by our second data collection method. 
+Similar to what we did by plotting the paper's overall citation trends, we plotted the citation trends within each clusters. We display the citation trends of five clusters in the outCitation network below. This network is obtained by our second data collection method. 
 
-![image](/image/citOverYear_clusters_inCitation_(method2).png)
+![image](/image/citOverYear_clusters_outCitation_(method2).png)
 
 
