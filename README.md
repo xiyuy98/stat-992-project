@@ -74,7 +74,11 @@ We collected 41067 papers by this method.
 
 We plotted the paper's overall citation trends by year. These trends are extracted and plotted based on the inCitation and outCitation networks. Notice that instead of plotting the paper's citation frequency, we plot the ratios obtained by dividing the number of papers, which is cited by FDR paper, published in a certain year by the total number of published papers in that year. 
 
-![GitHub Logo](https://github.com/xiyuy98/stat-992-project/issues/1#issue-769077151)
+![GitHub Logo](/image/citOverYear_total_outCitation_(method1).png)
+
+![GitHub Logo](/image/citOverYear_total_inCitation_(method2).png)
+
+![GitHub Logo](/image/citOverYear_total_outCitation_(method2).png)
 
 ### Citation in different fields
 
