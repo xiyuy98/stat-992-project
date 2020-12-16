@@ -8,13 +8,13 @@ Contributors:
 
 ## Navigation Panel:
 
-[What is this project about?](https://github.com/xiyuy98/stat-992-project#what-is-this-project-about)
-[Data](https://github.com/xiyuy98/stat-992-project#data)
-[Analysis](https://github.com/xiyuy98/stat-992-project#analysis)
-+ [Overall citation trends by year](https://github.com/xiyuy98/stat-992-project#overall-citation-trends-by-year)
-+ [Citation in different fields](https://github.com/xiyuy98/stat-992-project#citation-in-different-fields)
-+ [Further look into clusters](https://github.com/xiyuy98/stat-992-project#further-look-into-clusters)
-[Conclusion](https://github.com/xiyuy98/stat-992-project#conclusion)
+* [What is this project about?](https://github.com/xiyuy98/stat-992-project#what-is-this-project-about)
+* [Data](https://github.com/xiyuy98/stat-992-project#data)
+* [Analysis](https://github.com/xiyuy98/stat-992-project#analysis)
+  * [Overall citation trends by year](https://github.com/xiyuy98/stat-992-project#overall-citation-trends-by-year)
+  * [Citation in different fields](https://github.com/xiyuy98/stat-992-project#citation-in-different-fields)
+  * [Further look into clusters](https://github.com/xiyuy98/stat-992-project#further-look-into-clusters)
+* [Conclusion](https://github.com/xiyuy98/stat-992-project#conclusion)
 
 ## What is this project about?
 
