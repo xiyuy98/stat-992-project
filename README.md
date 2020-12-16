@@ -204,3 +204,21 @@ We simplify the above graph by presenting each cluster as a dot. The size of the
 
 #### Bridge paper
 
+Because when we visualized the clusters, we saw more within-cluster citations than between-cluster citations. This brings us to the question whether there exists some 'bridge' paper. We define bridge paper as an influential paper in a research field (cluster) that other papers in the same field cite instead of citing Benjamini and Hochberg's FDR paper. We plotted the following figure to visualize our thinkings:
+
+![image](/image/bridge_paper.png)
+
+In the above graph, round dots are those cited the original FDR paper whereas the squared dots are those did not. Comparing the hypothesis testing cluster with the human genetics cluster, we find that the clusters closely related to statistics are more likely to cite the original work directly while those clusters less affiliated with statistics are more likely to have a "bridge" paper in their own field.
+
+## Conclusion
+
+There are four main findings in our project:
+
++ There is almost no time lag( less than 3 years)  for FDR, however the lag do exist in application fields outside of Statistics (e.g. genetic, engineering).
+
++ The overall diffusion pattern for FDR is partially Bell-shaped and the increasing rate of the paper's popularity slows down in the past 5 years.
+
++ The diffusion patterns are different across the fields, but most patterns are Bell-shaped with different flatness.
+
++ The "bridge" papers exist in the fields other than Statistics. But unfortunately, this phenomenon cannot be well studied base on our current dataset.
+
