@@ -91,7 +91,7 @@ We plotted the paper's overall citation trends by year. These trends are extract
 
 ![image](/image/citOverYear_total_outCitation_(method2).png)
 
-*Fig 1: Plot of the overall FDR citation changes by year (outCitation network, data collect method 2).*
+*Figure 1. Plot of the overall FDR citation changes by year (data collection method 2, outCitation network).*
 
 The code we used to plot the images is displayed here:
 
@@ -111,6 +111,8 @@ ggplot(data=citYear_total_out, aes(x=year, y=ratio)) +
 To find how many clusters are included in the networks, we applied [Vintage Sparse principal component analysis (VSP)](https://arxiv.org/pdf/2004.05387.pdf) to the matrices built from our inCitation and outCitation networks. For example, by applying VSP on the data collected by our second method, we found seven clusters in the inCitation network. 
 
 ![image](/image/vsp_in_(method2).png)
+
+*Figure 2. Scatterplot of the Vintage Sparse PCA results for inCitation network (data collection method 2).*
 
 The code we used is here:
 
@@ -155,6 +157,8 @@ For the inCitation network, we named the 7 meaningful clusters as:
 |proportion|mrnas|package|structural|faecal|computed|solanum|
 |power|causing|data|healthy|bacteroides|nsclc|wine|
 |values|mrna|throughput|maps|microbes|glioblastoma|metabolism|
+
+*Table 1. Summary of the best feature function results for inCitation network (data collection method 2).*
 
 We used the following code to do the contextualization:
 
@@ -202,6 +206,8 @@ Similar to what we did by plotting the paper's overall citation trends, we plott
 
 ![image](/image/citOverYear_clusters_outCitation_(method2).png)
 
+*Figure 3. Plot of citation trends within each cluster (data collection method 2, outCitation network).*
+
 ### Further look into clusters
 
 #### Visualize clusters
@@ -210,15 +216,21 @@ After identifying the clusters, we wanted to visualize them and find the across-
 
 ![image](/image/visClusters_top50_outCitation_method1.jpg)
 
+*Figure 4. Visualization of clusters sampled by the top 50 papers (data collection method 1, outCitation network).*
+
 We simplify the above graph by presenting each cluster as a dot. The size of the dot indicates the number of papers in the cluster. We only keep the edges in which the number of citations counts for more than 5% total citations. It is clear in the updated graph that cluster 1 (hypothesis testing) contains the most papers. Cluster 6 (regression), which is closer to hypothesis testing, has a larger citation number compared to the other clusters. Keep in mind that we use out citation for the graph, which means most papers are cited by the hypothesis testing cluster.
 
 ![image](/image/visClusters_outCitation_method2.png)
+
+*Figure 5. Simplified visualization of clusters (data collection method 1, outCitation network).*
 
 #### Bridge paper
 
 Because when we visualized the clusters, we saw more within-cluster citations than between-cluster citations. This brings us to the question whether there exists some 'bridge' paper. We define bridge paper as an influential paper in a research field (cluster) that other papers in the same field cite instead of citing Benjamini and Hochberg's FDR paper. We plotted the following figure to visualize our thinkings:
 
 ![image](/image/bridge_paper.png)
+
+*Figure 6. Display bridge paper effects by comparing between the hypothesis testing cluster (left) and the genetic variations in human cluster (right) in 2013 and 2020 (data collection 1, outCitation network).*
 
 In the above graph, round dots are those cited the original FDR paper whereas the squared dots are those did not. Comparing the hypothesis testing cluster with the human genetics cluster, we find that the clusters closely related to statistics are more likely to cite the original work directly while those clusters less affiliated with statistics are more likely to have a "bridge" paper in their own field.
 
