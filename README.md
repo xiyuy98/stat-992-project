@@ -82,4 +82,4 @@ We plotted the paper's overall citation trends by year. These trends are extract
 
 ### Citation in different fields
 
-To find how many clusters are included in the networks, we applied
+To find how many clusters are included in the networks, we applied 
