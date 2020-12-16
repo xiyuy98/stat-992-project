@@ -74,12 +74,24 @@ We collected 41067 papers by this method.
 
 We plotted the paper's overall citation trends by year. These trends are extracted and plotted based on the inCitation and outCitation networks. Notice that instead of plotting the paper's citation frequency, we plot the ratios obtained by dividing the number of papers, which is cited by FDR paper, published in a certain year by the total number of published papers in that year. 
 
-![GitHub Logo](/image/citOverYear_total_outCitation_(method1).png)
+![GitHub Logo](/image/citOverYear_total_outCitation_(method1).jpg)
 
 ![GitHub Logo](/image/citOverYear_total_inCitation_(method2).png)
 
 ![GitHub Logo](/image/citOverYear_total_outCitation_(method2).png)
 
+The code we used to plot the images is displayed here:
+
+```r
+ggplot(data=citYear_total_out, aes(x=year, y=ratio)) + 
+  geom_line() +    
+  scale_y_log10(limits = c(1e-6,1e-3)) +
+  xlim(1995, 2020) +
+  theme_classic() +
+  ggtitle("Plot of the overall FDR citation change over time (outCitation network)")
+```
+
 ### Citation in different fields
 
-To find how many clusters are included in the networks, we applied 
+To find how many clusters are included in the networks, we applied Vintage Sparse principal component analysis to the matrices built from our inCitation and outCitation networks. The results are shown as follows: 
+
