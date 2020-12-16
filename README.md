@@ -12,9 +12,13 @@ This is a class project for Statistics 992 Data Science with Graphs which is tau
 
 In this project, we study the citation patterns of false discovery rate (FDR). We would like to understand the citation changes of Benjamini and Hochberg's FDR paper (1995) over time and across different fields. We name such changes as the paper's diffusion pattern because its influence spreads across the citation network over time. Specifically, we observe whether a time lag appears and compare the time lag difference across research fields. For time lag, we mean whether there exists a gap between the time when the paper was published and when it gained its popularity. We then plot the shape of the citation patterns in each field. We observe that diffusion pattern in one field differs based on the field's closeness to statistics. 
 
-## Data description and collection
+## Data
+
+### Data description
 
 We used the Semantic Scholar's records, which gives information on research papers. The corpus is composed of rich abstracts, bibliographic references, and structured full texts. The full text comes with automatically detected inline citations, figures, and tables. Also, each citation is linked to its corresponding paper. In Semantic Scholar's dataset, papers from hundreds of academic publishers and digital archives are aggregated into a single source. With the well-developed tool, we downloaded and configured the whole dataset with 220 million papers and over 100Gb meta data. They are well prepared, machine-readable academic texts
+
+### Data collection
 
 We used two methods to extract FDR-related papers. For the first method, we picked all research papers that mention FDR in their abstracts. To include all related papers, we used the key phase 'false discovery rate' when scanning through all the abstracts. We brought in eleven columns while extracting the data. The columns are listed below: 
 
@@ -185,5 +189,3 @@ keypapers_in = bff(fa_in$Z, A_abs_in, 20) %>% t
 Similar to what we did by plotting the paper's overall citation trends, we plotted the citation trends within each clusters. We display the citation trends of five clusters in the outCitation network below. This network is obtained by our second data collection method. 
 
 ![image](/image/citOverYear_clusters_outCitation_(method2).png)
-
-
