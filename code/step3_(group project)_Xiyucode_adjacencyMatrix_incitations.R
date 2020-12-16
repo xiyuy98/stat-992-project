@@ -32,6 +32,17 @@ abstract_ids <- abstract_ids %>%
 
 df <- abstract_ids %>% left_join(df)
 
+# check missing data
+df %>% filter(inCitation=="") %>% count()
+
+# check how many only contains one or two inCitations
+few_inCit <- df %>% 
+  select(id,inCitation) %>% 
+  unnest_tokens(word,inCitation) %>% 
+  group_by(id) %>% 
+  count() %>% 
+  filter(n<=5)
+
 # create identifiers for all the paper id (FDR paper + inCitation paper)
 inCitations = df %>% 
   select(inCitation) %>% 

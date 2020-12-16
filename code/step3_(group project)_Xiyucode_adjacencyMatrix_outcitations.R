@@ -29,6 +29,17 @@ abstract_ids <- abstract_ids %>%
 
 df <- abstract_ids %>% left_join(df)
 
+# check missing data
+df %>% filter(outCitation=="") %>% count()
+
+# check how many only contains one or two outCitations
+few_outCit <- df %>% 
+  select(id,outCitation) %>% 
+  unnest_tokens(word,outCitation) %>% 
+  group_by(id) %>% 
+  count() %>% 
+  filter(n<=5)
+
 # identifier
 outCitations = df %>% 
   select(outCitation) %>% 

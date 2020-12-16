@@ -6,7 +6,7 @@ source("code/step6_(group project)_Xiyucode_clusterAssignment.R")
 
 # package
 library(ggplot2)
-library(scater)
+require(scales)
 
 # read in data
 years <- readRDS("data/years.RDS")
@@ -78,42 +78,48 @@ citYear_out <- FDR_out %>%
 
 # visualization
 total <- ggplot(data=citYear_total_out, aes(x=year, y=ratio)) + 
-  geom_line() +
-  # ylim(0,5e-5) +
+  geom_line() +    
+  scale_y_log10(limits = c(1e-6,1e-3)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the overall FDR citation change over time")
+  ggtitle("Plot of the overall FDR citation change over time (outCitation network)")
 
 p1<-ggplot(data=citYear_out %>% filter(cluster_out == 1),aes(x=year,y=ratio)) +
   geom_line() + 
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-3)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the FDR citation change over time (Cluster 1)") 
+  ggtitle("Plot of the FDR citation change over time (Gene Expression)") 
 
 p2<-ggplot(data=citYear_out %>% filter(cluster_out == 2),aes(x=year,y=ratio)) +
   geom_line() + 
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-3)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the FDR citation change over time (Cluster 2)") 
+  ggtitle("Plot of the FDR citation change over time (Neuroscience)") 
 
 p3<-ggplot(data=citYear_out %>% filter(cluster_out == 3),aes(x=year,y=ratio)) +
   geom_line() + 
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-3)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the FDR citation change over time (Cluster 3)") 
+  ggtitle("Plot of the FDR citation change over time (Population Genetics)") 
 
 p4<-ggplot(data=citYear_out %>% filter(cluster_out == 4),aes(x=year,y=ratio)) +
   geom_line() + 
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-3)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the FDR citation change over time (Cluster 4)") 
+  ggtitle("Plot of the FDR citation change over time (Microbiology)") 
 
 p5<-ggplot(data=citYear_out %>% filter(cluster_out == 5),aes(x=year,y=ratio)) +
   geom_line() + 
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-3)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the FDR citation change over time (Cluster 5)") 
+  ggtitle("Plot of the FDR citation change over time (Hypothesis Testing)") 
 
-multiplot(total,p1, p2, p3, p4, p5, cols=2)
+multiplot(p1, p2, p3, p4, p5, cols=2)
 
 ## inCitation network
 # combine FDR_in with FDR_years
@@ -136,52 +142,60 @@ citYear_in <- FDR_in %>%
   mutate(ratio = n/paperNum_total)
 
 # visualization
-total <- ggplot(data=citYear_total_in, aes(x=year, y=ratio)) + 
+total_in <- ggplot(data=citYear_total_in, aes(x=year, y=ratio)) + 
   geom_line() +
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-3)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the overall FDR citation change over time")
+  ggtitle("Plot of the overall FDR citation change over time (inCitation network)")
 
 p1<-ggplot(data=citYear_in %>% filter(cluster_in == 1),aes(x=year,y=ratio)) +
   geom_line() + 
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-4)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the FDR citation change over time (Cluster 1)") 
+  ggtitle("Plot of the FDR citation change over time (Hypothesis Testing)") 
 
 p2<-ggplot(data=citYear_in %>% filter(cluster_in == 2),aes(x=year,y=ratio)) +
   geom_line() + 
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-4)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the FDR citation change over time (Cluster 2)") 
+  ggtitle("Plot of the FDR citation change over time (Feature Engineering)") 
 
 p3<-ggplot(data=citYear_in %>% filter(cluster_in == 3),aes(x=year,y=ratio)) +
   geom_line() + 
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-4)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the FDR citation change over time (Cluster 3)") 
+  ggtitle("Plot of the FDR citation change over time (Gene Expression)") 
 
 p4<-ggplot(data=citYear_in %>% filter(cluster_in == 4),aes(x=year,y=ratio)) +
   geom_line() + 
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-4)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the FDR citation change over time (Cluster 4)") 
+  ggtitle("Plot of the FDR citation change over time (Neuroscience)") 
 
 p5<-ggplot(data=citYear_in %>% filter(cluster_in == 5),aes(x=year,y=ratio)) +
   geom_line() + 
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-4)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the FDR citation change over time (Cluster 5)") 
+  ggtitle("Plot of the FDR citation change over time (Digestive Physiology)") 
 
 p6<-ggplot(data=citYear_in %>% filter(cluster_in == 6),aes(x=year,y=ratio)) +
   geom_line() + 
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-4)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the FDR citation change over time (Cluster 6)") 
+  ggtitle("Plot of the FDR citation change over time (Radiology)") 
 
 p7<-ggplot(data=citYear_in %>% filter(cluster_in == 7),aes(x=year,y=ratio)) +
   geom_line() + 
-  # ylim(0,5e-5) +
+  scale_y_log10(limits = c(1e-7,1e-4)) +
+  xlim(1995, 2020) +
   theme_classic() +
-  ggtitle("Plot of the FDR citation change over time (Cluster 7)") 
+  ggtitle("Plot of the FDR citation change over time (Vinification/Wine Making)") 
 
-multiplot(total,p1, p2, p3, p4, p5, p6, p7, cols=2)
+multiplot(p1, p2, p3, p4, p5, p6, p7, cols=2)
