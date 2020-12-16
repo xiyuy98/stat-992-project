@@ -189,3 +189,18 @@ keypapers_in = bff(fa_in$Z, A_abs_in, 20) %>% t
 Similar to what we did by plotting the paper's overall citation trends, we plotted the citation trends within each clusters. We display the citation trends of five clusters in the outCitation network below. This network is obtained by our second data collection method. 
 
 ![image](/image/citOverYear_clusters_outCitation_(method2).png)
+
+### Further look into clusters
+
+#### Visualize clusters
+
+After identifying the clusters, we wanted to visualize them and find the across-cluster connections. In each cluster, we ranked papers by loading. The higher the loading is, the closer the paper is related to the cluster. To make the plot clearer, we picked the top 10% and the top 50 papers, and visualized them. Each dot denotes a paper and each line denotes the citation relationship between two nodes. We see more citations within a cluster than between two clusters. The following figure shows the seven clusters of the outCitation network obtained by the first data collection method:
+
+![image](/image/visClusters_top50_outCitation_method1.jpg)
+
+We simplify the above graph by presenting each cluster as a dot. The size of the dot indicates the number of papers in the cluster. We only keep the edges in which the number of citations counts for more than 5% total citations. It is clear in the updated graph that cluster 1 (hypothesis testing) contains the most papers. Cluster 6 (regression), which is closer to hypothesis testing, has a larger citation number compared to the other clusters. Keep in mind that we use out citation for the graph, which means most papers are cited by the hypothesis testing cluster.
+
+![image](/image/visClusters_outCitation_method2.png)
+
+#### Bridge paper
+
