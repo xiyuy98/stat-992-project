@@ -74,11 +74,11 @@ We collected 41067 papers by this method.
 
 We plotted the paper's overall citation trends by year. These trends are extracted and plotted based on the inCitation and outCitation networks. Notice that instead of plotting the paper's citation frequency, we plot the ratios obtained by dividing the number of papers, which is cited by FDR paper, published in a certain year by the total number of published papers in that year. 
 
-![GitHub Logo](/image/citOverYear_total_outCitation_(method1).jpg)
+![image](/image/citOverYear_total_outCitation_(method1).jpg)
 
-![GitHub Logo](/image/citOverYear_total_inCitation_(method2).png)
+![image](/image/citOverYear_total_inCitation_(method2).png)
 
-![GitHub Logo](/image/citOverYear_total_outCitation_(method2).png)
+![image](/image/citOverYear_total_outCitation_(method2).png)
 
 The code we used to plot the images is displayed here:
 
@@ -93,5 +93,18 @@ ggplot(data=citYear_total_out, aes(x=year, y=ratio)) +
 
 ### Citation in different fields
 
-To find how many clusters are included in the networks, we applied Vintage Sparse principal component analysis to the matrices built from our inCitation and outCitation networks. The results are shown as follows: 
+To find how many clusters are included in the networks, we applied Vintage Sparse principal component analysis (VSP) to the matrices built from our inCitation and outCitation networks. 
 
+By applying VSP on the data collected by our first method, we found three clusters in the inCitation network and seven clusters in the outCitation network. 
+
+![image](/image/vsp_in_(method1).png)
+
+![image](/image/vsp_out_(method1).png)
+
+When we applied VSP on the data collected by the second method, we found seven meaningful clusters in the inCitation network and five clusters in the outCitation network. 
+
+![image](/image/vsp_in_(method2).png)
+
+![image](/image/vsp_out_(method2).png)
+
+After we decided the number of clusters in each network, we applied the best feature function on the results of VSP and the paper-term matrices obtained by tokenizing abstracts. In this way, we contextualized our data and gave each cluster a name. 
