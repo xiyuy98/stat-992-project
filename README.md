@@ -8,7 +8,7 @@ Contributors:
 
 Navigation Panel:
 
-+ What is this project about?
++ [What is this project about?](#https://github.com/xiyuy98/stat-992-project#what-is-this-project-about)
 + 
 
 ## What is this project about?
