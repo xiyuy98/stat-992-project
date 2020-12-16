@@ -91,6 +91,8 @@ We plotted the paper's overall citation trends by year. These trends are extract
 
 ![image](/image/citOverYear_total_outCitation_(method2).png)
 
+**Fig 1: Plot of the overall FDR citation changes by year (outCitation network, data collect method 2).**
+
 The code we used to plot the images is displayed here:
 
 ```r
