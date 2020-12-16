@@ -93,6 +93,8 @@ ggplot(data=citYear_total_out, aes(x=year, y=ratio)) +
 
 ### Citation in different fields
 
+#### Find clusters
+
 To find how many clusters are included in the networks, we applied Vintage Sparse principal component analysis (VSP) to the matrices built from our inCitation and outCitation networks. 
 
 By applying VSP on the data collected by our first method, we found three clusters in the inCitation network and seven clusters in the outCitation network. 
@@ -107,11 +109,13 @@ When we applied VSP on the data collected by the second method, we found seven m
 
 ![image](/image/vsp_out_(method2).png)
 
+#### Contextualize clusters
+
 After we decided the number of clusters in each network, we applied the best feature function on the results of VSP and the paper-term matrices obtained by tokenizing abstracts. In this way, we contextualized our data and gave each cluster a name. 
 
 *Data Collection Method 1*
 
-For the inCitation network, we find 3 meaningful clusters (see Table 1).
+For the inCitation network, we named the 3 meaningful clusters as: 
 
 * V1: statistics
 * V2: proteomics
@@ -140,7 +144,7 @@ For the inCitation network, we find 3 meaningful clusters (see Table 1).
 |simulation|engines|conjunctional|
 |paper|proteomic|snps|
 
-For the outCitation network, we find 7 meaningful clusters(see Table 2).
+For the outCitation network, we named the 7 meaningful clusters as:
 
 * V1: hypothesis testing
 * V2: proteomics
@@ -179,3 +183,24 @@ For the outCitation network, we find 7 meaningful clusters(see Table 2).
 |values|sequest|transcription|disease|mapping|asymptotic|maternal|
 
 *Data Collection Method 2*
+
+For the inCitation network, we named the 7 meaningful clusters as: 
+
+* V1: hypothesis testing
+* V2: feature engineering
+* V3: gene expression
+* V4: neuroscience
+* V5: digestive physiology
+* V6: radiology
+* V7: vinification (wine making)
+
+
+
+For the outCitation network, we named the 5 meaningful clusters as:
+
+* V1: gene expression
+* V2: neuroscience
+* V3: population genetics
+* V4: microbiology
+* V5: hypothesis testing
+
