@@ -74,10 +74,6 @@ We collected 41067 papers by this method.
 
 We plotted the paper's overall citation trends by year. These trends are extracted and plotted based on the inCitation and outCitation networks. Notice that instead of plotting the paper's citation frequency, we plot the ratios obtained by dividing the number of papers, which is cited by FDR paper, published in a certain year by the total number of published papers in that year. 
 
-![image](/image/citOverYear_total_outCitation_(method1).jpg)
-
-![image](/image/citOverYear_total_inCitation_(method2).png)
-
 ![image](/image/citOverYear_total_outCitation_(method2).png)
 
 The code we used to plot the images is displayed here:
@@ -95,23 +91,20 @@ ggplot(data=citYear_total_out, aes(x=year, y=ratio)) +
 
 #### Find clusters
 
-To find how many clusters are included in the networks, we applied Vintage Sparse principal component analysis (VSP) to the matrices built from our inCitation and outCitation networks. 
-
-By applying VSP on the data collected by our first method, we found three clusters in the inCitation network and seven clusters in the outCitation network. 
-
-![image](/image/vsp_in_(method1).png)
-
-![image](/image/vsp_out_(method1).png)
-
-When we applied VSP on the data collected by the second method, we found seven meaningful clusters in the inCitation network and five clusters in the outCitation network. 
+To find how many clusters are included in the networks, we applied Vintage Sparse principal component analysis (VSP) to the matrices built from our inCitation and outCitation networks. For example, by applying VSP on the data collected by our second method, we found seven clusters in the inCitation network. 
 
 ![image](/image/vsp_in_(method2).png)
 
-![image](/image/vsp_out_(method2).png)
+The code we used is here:
+
+```r
+fa_in = vsp(A_in, rank = 7, scale = TRUE, rescale = FALSE)
+plot_varimax_z_pairs(fa_in, 1:7)
+```
 
 #### Contextualize clusters
 
-After we decided the number of clusters in each network, we applied the best feature function on the results of VSP and the paper-term matrices obtained by tokenizing abstracts. In this way, we contextualized our data and gave each cluster a name. The results listed below are based on our second data collection method:
+After we decided the number of clusters in each network, we applied the best feature function on the results of VSP and the paper-term matrices obtained by tokenizing abstracts. In this way, we contextualized our data and gave each cluster a name. We present the results of inCitation network obtained by the second data collection method:
 
 For the inCitation network, we named the 7 meaningful clusters as: 
 
@@ -146,11 +139,45 @@ For the inCitation network, we named the 7 meaningful clusters as:
 |power|causing|data|healthy|bacteroides|nsclc|wine|
 |values|mrna|throughput|maps|microbes|glioblastoma|metabolism|
 
-For the outCitation network, we named the 5 meaningful clusters as:
+We used the following code to do the contextualization:
 
-* V1: gene expression
-* V2: neuroscience
-* V3: population genetics
-* V4: microbiology
-* V5: hypothesis testing
+The function, bff(), is developed by Alex Hayes and Fan Chen, and posted under Karl 
+Rohe's GitHub repository, vsp.
+
+```r
+# function, bff()
+bff.default <-  function(loadings, features, num_best, ...) {
+  
+  loadings[loadings < 0] <-  0
+  k <- ncol(loadings)
+  
+  best_feat <- matrix("", ncol = k, nrow = num_best)
+  
+  ## normalize the cluster to a probability distribution (select one member at random)
+  nc <- apply(loadings, 2, l1_normalize)
+  nOutC <- apply(loadings == 0, 2, l1_normalize)
+  
+  inCluster <- sqrt(crossprod(features, nc))
+  outCluster <- sqrt(crossprod(features, nOutC))
+  
+  # diff is d x K, element [i,j] indicates importance of i-th feature to j-th block
+  # contrast: sqrt(A) - sqrt(B), variance stabilization
+  diff <-  inCluster - outCluster
+  
+  for (j in 1:k) {
+    bestIndex <-  order(-diff[,j])[1:num_best]
+    best_feat[,j] <-  colnames(features[, bestIndex])
+  }
+  
+  best_feat
+}
+
+# simplify matrix, A_abs, for bff on incitations
+id_in = edgeList_in %>% select(id) %>% unique()
+id_in = id_in$id
+A_abs_in = A_abs[id_in, ]
+
+# apply bff on inCitation adjacency matrix
+keypapers_in = bff(fa_in$Z, A_abs_in, 20) %>% t
+```
 
