@@ -111,78 +111,7 @@ When we applied VSP on the data collected by the second method, we found seven m
 
 #### Contextualize clusters
 
-After we decided the number of clusters in each network, we applied the best feature function on the results of VSP and the paper-term matrices obtained by tokenizing abstracts. In this way, we contextualized our data and gave each cluster a name. 
-
-*Data Collection Method 1*
-
-For the inCitation network, we named the 3 meaningful clusters as: 
-
-* V1: statistics
-* V2: proteomics
-* V3: genetics
-
-|V1|V2|V3|
-|:--------:|:--------:|:--------:|
-|hypotheses|peptide|conditional|
-|procedures|identifications|gwas|
-|null|peptides|loci|
-|procedure|spectra|shared|
-|controlling|proteomics|pleiotropic|
-|testing|search|summary|
-|proportion|decoy|wide|
-|error|mass|overlap|
-|problem|database|pleiotropy|
-|statistics|matches|enrichment|
-|benjamini|spectrum|genetic|
-|hochberg|tandem|epidemiological|
-|true|spectrometry|genome|
-|proposed|ms|schizophrenia|
-|power|identification|polygenic|
-|rejections|protein|phenotypes|
-|rejected|proteins|statistics|
-|dependence|shotgun|association|
-|simulation|engines|conjunctional|
-|paper|proteomic|snps|
-
-For the outCitation network, we named the 7 meaningful clusters as:
-
-* V1: hypothesis testing
-* V2: proteomics
-* V3: gene expression
-* V4: genetic variations in human
-* V5: genetic variations in plant
-* V6: regression
-* V7: DNA methylation
-
-|V1|V2|V3|V4|V5|V6|V7|
-|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|hypotheses|peptide|seq|snps|linkage|lasso|methylation|
-|null|proteomics|sequencing|gwas|disequilibrium|selection|cpg|
-|procedures|peptides|rna|genetic|breeding|knockoff|cpgs|
-|testing|identifications|expression|variants|nucleotide|sparse|dna|
-|procedure|spectra|expressed|association|snp|variables|epigenetic|
-|error|spectrometry|differentially|loci|snps|procedure|methylated|
-|controlling|mass|genes|nucleotide|traits|dimensional|epigenome|
-|multiple|search|gene|wide|marker|knockoffs|beadchip|
-|microarray|database|differential|polymorphisms|association|variable|blood|
-|simulation|ms|reads|genome|population|regression|wide|
-|proposed|tandem|transcriptome|rs|populus|asymptotically|infinium|
-|hypothesis|proteins|read|snp|single|penalized|humanmethylation|
-|proportion|decoy|biological|single|ld|finite|sites|
-|benjamini|protein|transcriptional|traits|trait|gaussian|genes|
-|tests|spectrum|transcripts|risk|phenotypic|power|cg|
-|statistics|identification|edger|phenotypes|polymorphisms|paper|gene|
-|hochberg|matches|regulation|pleiotropy|wood|propose|differentially|
-|power|proteome|regulated|associations|tomentosa|inference|microarray|
-|rejections|engines|pathways|trait|assisted|linear|expression|
-|distribution|spectral|deseq|schizophrenia|plant|prove|cohort|
-|paper|shotgun|throughput|polygenic|markers|control|association|
-|true|mascot|replicates|susceptibility|variation|theoretical|dnam|
-|familywise|proteomic|enriched|shared|genotyped|applications|illumina|
-|probability|searching|degs|conditional|associations|penalty|cord|
-|values|sequest|transcription|disease|mapping|asymptotic|maternal|
-
-*Data Collection Method 2*
+After we decided the number of clusters in each network, we applied the best feature function on the results of VSP and the paper-term matrices obtained by tokenizing abstracts. In this way, we contextualized our data and gave each cluster a name. The results listed below are based on our second data collection method:
 
 For the inCitation network, we named the 7 meaningful clusters as: 
 
@@ -194,7 +123,28 @@ For the inCitation network, we named the 7 meaningful clusters as:
 * V6: radiology
 * V7: vinification (wine making)
 
-
+|V1|V2|V3|V4|V5|V6|V7|
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|false|extraction|gene|brain|microbiota|features|fruit|
+|discovery|unsupervised|genes|imaging|gut|radiomics|ripening|
+|testing|feature|expression|neuroimaging|microbial|imaging|vitis|
+|hypotheses|principal|genome|tensor|microbiome|radiomic|berries|
+|fdr|component|http|alzheimer's|composition|tumor|grape|
+|rate|fe|microarray|mri|bacterial|images|sauvignon|
+|procedure|proposed|biological|connectivity|rrna|image|tomato|
+|procedures|recently|wide|cognitive|fecal|cancer|cabernet|
+|null|pca|seq|subjects|intestinal|tumors|vinifera|
+|error|mirnas|genomic|matter|abundance|prognostic|ethylene|
+|benjamini|applied|differential|scans|metagenomic|ct|plant|
+|hochberg|drug|sets|cortical|firmicutes|texture|biosynthesis|
+|multiple|difficult|rna|regions|host|predictive|fruits|
+|controlling|microrna|differentially|diffusion|sequencing|lung|berry|
+|statistics|successfully|expressed|magnetic|bacteria|patients|lycopersicum|
+|proposed|silico|methylation|morphometry|diet|tomography|transcripts|
+|true|tensor|motivation|resonance|bateroidetes|feature|plants|
+|proportion|mrnas|package|structural|faecal|computed|solanum|
+|power|causing|data|healthy|bacteroides|nsclc|wine|
+|values|mrna|throughput|maps|microbes|glioblastoma|metabolism|
 
 For the outCitation network, we named the 5 meaningful clusters as:
 
