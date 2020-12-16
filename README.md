@@ -6,10 +6,12 @@ Contributors:
 - Xiyu Yang
 - Shuqi Yu
 
-Navigation Panel:
+## Navigation Panel:
 
 + [What is this project about?](https://github.com/xiyuy98/stat-992-project#what-is-this-project-about)
-+ 
++ [Data](https://github.com/xiyuy98/stat-992-project#data)
++ [Analysis](https://github.com/xiyuy98/stat-992-project#analysis)
++ [Conclusion](https://github.com/xiyuy98/stat-992-project#conclusion)
 
 ## What is this project about?
 
