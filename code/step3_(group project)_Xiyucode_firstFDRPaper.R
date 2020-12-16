@@ -11,7 +11,7 @@ library(dplyr)
 library(tidytext)
 
 # read in data
-files <- list.files(path = "data/fdr", pattern = "*.csv", full.names = T)
+files <- list.files(path = "data/FDR_000_180)", pattern = "*.csv", full.names = T)
 df <- as.list(seq_len(length(files)))
 for (i in 1:length(files)){
   data = read.csv(files[i])

@@ -64,3 +64,7 @@ FDR_out <- FDR_out[rownames(Z_out),] ## extract papers with non-zero loadings.
 FDR_out <- FDR_out %>% 
   cbind(cluster_out) %>% 
   cbind(loading_out)
+
+# save data
+write.csv(FDR_out, file = "data/fdr_out.csv")
+write.csv(FDR_in, file = "data/fdr_in.csv")
