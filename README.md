@@ -68,7 +68,14 @@ includeLine = function(x) {
 
 We collected 41067 papers by this method. 
 
-## Overall citation trends by year
+## Analysis
 
-We plotted the paper's overall citation trends by year. These trends are extracted and plotted based on the inCitation and outCitation networks. Notice that instead of plotting the paper's citation frequency, we plot the ratios obtained by dividing the number of papers, which is cited by FDR paper, published in a certain year by the total number of papers published in that year. 
+### Overall citation trends by year
 
+We plotted the paper's overall citation trends by year. These trends are extracted and plotted based on the inCitation and outCitation networks. Notice that instead of plotting the paper's citation frequency, we plot the ratios obtained by dividing the number of papers, which is cited by FDR paper, published in a certain year by the total number of published papers in that year. 
+
+https://github.com/xiyuy98/stat-992-project/issues/1#issue-769077151
+
+### Citation in different fields
+
+To find how many clusters are included in the networks, we applied
