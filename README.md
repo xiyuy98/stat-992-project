@@ -8,7 +8,7 @@ Contributors:
 
 ## Navigation Panel:
 
-* [What is this project about?](https://github.com/xiyuy98/stat-992-project#what-is-this-project-about)
+* [Background](https://github.com/xiyuy98/stat-992-project#background)
 * [Data](https://github.com/xiyuy98/stat-992-project#data)
 * [Analysis](https://github.com/xiyuy98/stat-992-project#analysis)
   * [Overall citation trends by year](https://github.com/xiyuy98/stat-992-project#overall-citation-trends-by-year)
@@ -16,7 +16,7 @@ Contributors:
   * [Further look into clusters](https://github.com/xiyuy98/stat-992-project#further-look-into-clusters)
 * [Conclusion](https://github.com/xiyuy98/stat-992-project#conclusion)
 
-## What is this project about?
+## Background
 
 This is a class project for Statistics 992 Data Science with Graphs which is taught by Professor Karl Rohe. This project is motivated by the following facts: Many current research on citation networks focus on general citation patterns only in the field of statistics. A good summary of the previous studies are provided by Radicchi, Fortunato, and Vespignani (2012).  However, to our knowledge, very few work (if any) focuses on a specific statistical technique, tracking its citation patterns in different fields of study over time.
 
