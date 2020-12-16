@@ -19,15 +19,15 @@ Contributors:
 
 ## Background
 
-This is a class project for Statistics 992 Data Science with Graphs which is taught by Professor Karl Rohe. This project is motivated by the following facts: Many current research on citation networks focus on general citation patterns only in the field of statistics. A good summary of the previous studies are provided by Radicchi, Fortunato, and Vespignani (2012).  However, to our knowledge, very few work (if any) focuses on a specific statistical technique, tracking its citation patterns in different fields of study over time.
+This is a class project for Statistics 992 Data Science with Graphs which is taught by [Professor Karl Rohe](http://pages.stat.wisc.edu/~karlrohe/index.html). This project is motivated by the following facts: Many current research on citation networks focus on general citation patterns only in the field of statistics. A good summary of the previous studies are provided by Radicchi, Fortunato, and Vespignani (2012).  However, to our knowledge, very few work (if any) focuses on a specific statistical technique, tracking its citation patterns in different fields of study over time.
 
-In this project, we study the citation patterns of false discovery rate (FDR). We would like to understand the citation changes of [Benjamini and Hochberg's FDR paper (1995)](https://www.jstor.org/stable/pdf/2346101.pdf?casa_token=qlxs1uyCcj8AAAAA:G5YA-dmXlC4ejoC1OVLKHTq8MvccB-zQtXSZI8VHg9fgHAH9n4B0NESP200mDtLf8pmLh-MZ3fV1cWZhRj7h2isC_MpCZhAJCGhSHScvGW54Bb69pIU) over time and across different fields. We name such changes as the paper's diffusion pattern because its influence spreads across the citation network over time. Specifically, we observe whether a time lag appears and compare the time lag difference across research fields. For time lag, we mean whether there exists a gap between the time when the paper was published and when it gained its popularity. We then plot the shape of the citation patterns in each field. We observe that diffusion pattern in one field differs based on the field's closeness to statistics. 
+In this project, we study the citation patterns of false discovery rate (FDR). We would like to understand the citation changes of [Benjamini and Hochberg's FDR paper (1995)](https://www.jstor.org/stable/pdf/2346101.pdf?casa_token=qlxs1uyCcj8AAAAA:G5YA-dmXlC4ejoC1OVLKHTq8MvccB-zQtXSZI8VHg9fgHAH9n4B0NESP200mDtLf8pmLh-MZ3fV1cWZhRj7h2isC_MpCZhAJCGhSHScvGW54Bb69pIU) over time and across different fields. We name such changes as the paper's diffusion pattern because its influence spreads across the citation network over time. Specifically, we are curious to know whether a time lag exists and compare the time lag difference across research fields. For time lag, we mean whether there exists a gap between the time when the paper was published and when it gained its popularity. We then plot the shape of the citation patterns in each field. We find that the diffusion pattern in one field differs based on the field's closeness to statistics. 
 
 ## Data
 
 ### Data description
 
-We used the [Semantic Scholar's records](http://s2-public-api-prod.us-west-2.elasticbeanstalk.com/corpus/), which gives information on research papers. The corpus is composed of rich abstracts, bibliographic references, and structured full texts. The full text comes with automatically detected inline citations, figures, and tables. Also, each citation is linked to its corresponding paper. In Semantic Scholar's dataset, papers from hundreds of academic publishers and digital archives are aggregated into a single source. With the well-developed tool, we downloaded and configured the whole dataset with 220 million papers and over 100Gb meta data. They are well prepared, machine-readable academic texts
+We used the [Semantic Scholar's records](http://s2-public-api-prod.us-west-2.elasticbeanstalk.com/corpus/), a dataset aggregates papers from hundreds of academic publishers and digital archives into a single source. The corpus is composed of rich abstracts, bibliographic references, and structured full texts. The full text comes with automatically detected inline citations, figures, and tables. Moreover, each citation is linked to its corresponding paper. Following the instructions of the Semantic Scholar, we downloaded and configured the whole dataset with 220 million papers and over 100Gb meta data. They are well prepared, machine-readable academic texts.
 
 ### Data collection
 
@@ -73,7 +73,7 @@ outputPath = "FDR"
 processDataFiles(includeLine, processLine, outputPath)
 ```
 
-For the second method, we extracted all papers which cited Benjamini and Hochberg's FDR paper. If a paper's outCitation contains the id of Benjamini and Hochberg's paper, we would select the paper into our dataset. The code we used are the same as for the first method, except for the includeLine function:
+For the second method, we extracted all papers which cite Benjamini and Hochberg's FDR paper. If a paper's outCitation contains the ID of Benjamini and Hochberg's paper, we would select the paper into our dataset. The code we used are the same as for the first method, except for the includeLine function:
 
 ```r
 includeLine = function(x) {
@@ -238,13 +238,13 @@ In the above graph, round dots are those cited the original FDR paper whereas th
 
 There are four main findings in our project:
 
-+ There is almost no time lag (less than 3 years) for FDR, however the lag do exist in application fields outside of Statistics (e.g. genetic, engineering).
++ There is no time lag (the gap is less than 3 years) for FDR. However, some lags do exist in application fields outside of statistics such as genetics, neuroscience, etc.
 
-+ The overall diffusion pattern for FDR is partially Bell-shaped and the increasing rate of the paper's popularity slows down in the past 5 years.
++ The overall diffusion pattern for FDR is partially bell-shaped and the increasing rate of Benjamini and Hochberg's FDR paper's popularity slows down in the past 5 years.
 
-+ The diffusion patterns are different across the fields, but most patterns are Bell-shaped with different flatness.
++ The diffusion patterns are different across research fields, but most patterns are bell-shaped with different flatness.
 
-+ The "bridge" papers exist in the fields other than Statistics. But unfortunately, this phenomenon cannot be well studied base on our current dataset.
++ Bridge papers exist in the fields other than Sstatistics. But unfortunately, this phenomenon cannot be well studied based on our current dataset.
 
 ## Reference
 
