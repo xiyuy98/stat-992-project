@@ -248,14 +248,14 @@ There are four main findings in our project:
 
 ## Reference
 
-Waleed Ammar, Dirk Groeneveld, Chandra Bhagavatula, Iz Beltagy, Miles Crawford, Doug Downey, Jason Dunkelberger, Ahmed Elgohary, Sergey Feldman, Vu Ha, et al. Construction of the literature graph in semantic scholar. **arXiv preprint arXiv:1805.02262**, 2018.
+Waleed Ammar, Dirk Groeneveld, Chandra Bhagavatula, Iz Beltagy, Miles Crawford, Doug Downey, Jason Dunkelberger, Ahmed Elgohary, Sergey Feldman, Vu Ha, et al. Construction of the literature graph in semantic scholar. *arXiv preprint arXiv:1805.02262*, 2018.
 
-Yoav Benjamini and Yosef Hochberg. Controlling the false discovery rate: a practical and powerful approach to multiple testing. **Journal of the Royal statistical society: series B (Methodological)**, 57(1):289-300, 1995.
+Yoav Benjamini and Yosef Hochberg. Controlling the false discovery rate: a practical and powerful approach to multiple testing. *Journal of the Royal statistical society: series B (Methodological)*, 57(1):289-300, 1995.
 
-Pengsheng Ji, Jiashun Jin, et al. Coauthorship and citation networks for statisticians. **The Annals of Applied Statistics**, 10(4):1779-1812, 2016.
+Pengsheng Ji, Jiashun Jin, et al. Coauthorship and citation networks for statisticians. *The Annals of Applied Statistics*, 10(4):1779-1812, 2016.
 
-Filippo Radicchi, Santo Fortunato, and Alessandro Vespignani. Citation networks. **Models of science dynamics**, pages 233-257. Springer, 2012.
+Filippo Radicchi, Santo Fortunato, and Alessandro Vespignani. Citation networks. *Models of science dynamics*, pages 233-257. Springer, 2012.
 
-Karl Rohe and Muzhe Zeng. Vintage factor analysis with varimax performs statistical inference. **arXiv preprint arXiv:2004.05387**, 2020.
+Karl Rohe and Muzhe Zeng. Vintage factor analysis with varimax performs statistical inference. *arXiv preprint arXiv:2004.05387*, 2020.
 
 Song Wang and Karl Rohe. Don't mind the (eigen) gap.
