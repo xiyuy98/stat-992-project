@@ -248,12 +248,14 @@ There are four main findings in our project:
 
 ## Reference
 
-Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate: a practical and powerful approach to multiple testing. Journal of the Royal statistical society: series B (Methodological), 57(1), 289-300. 
+Waleed Ammar, Dirk Groeneveld, Chandra Bhagavatula, Iz Beltagy, Miles Crawford, Doug Downey, Jason Dunkelberger, Ahmed Elgohary, Sergey Feldman, Vu Ha, et al. Construction of the literature graph in semantic scholar. **arXiv preprint arXiv:1805.02262**, 2018.
 
-Radicchi, Filippo, Santo Fortunato, and Alessandro Vespignani. "Citation networks." In Models of science dynamics, pp. 233-257. Springer, Berlin, Heidelberg, 2012.
+Yoav Benjamini and Yosef Hochberg. Controlling the false discovery rate: a practical and powerful approach to multiple testing. **Journal of the Royal statistical society: series B (Methodological)**, 57(1):289-300, 1995.
 
-Wang, Song, and Karl Rohe. "DON'T MIND THE (EIGEN) GAP."
+Pengsheng Ji, Jiashun Jin, et al. Coauthorship and citation networks for statisticians. **The Annals of Applied Statistics**, 10(4):1779-1812, 2016.
 
-Rohe, Karl, and Muzhe Zeng. "Vintage Factor Analysis with Varimax Performs Statistical Inference." arXiv preprint arXiv:2004.05387 (2020).
+Filippo Radicchi, Santo Fortunato, and Alessandro Vespignani. Citation networks. **Models of science dynamics**, pages 233-257. Springer, 2012.
 
-Ji, Pengsheng, and Jiashun Jin. "Coauthorship and citation networks for statisticians." The Annals of Applied Statistics 10, no. 4 (2016): 1779-1812.
+Karl Rohe and Muzhe Zeng. Vintage factor analysis with varimax performs statistical inference. **arXiv preprint arXiv:2004.05387**, 2020.
+
+Song Wang and Karl Rohe. Don't mind the (eigen) gap.
