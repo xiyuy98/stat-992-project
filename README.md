@@ -202,7 +202,7 @@ keypapers_in = bff(fa_in$Z, A_abs_in, 20) %>% t
 ```
 #### Citation trends within clusters
 
-Similar to what we did by plotting the paper's overall citation trends, we plotted the citation trends within each clusters. We display the citation trends of five clusters in the outCitation network below. This network is obtained by our second data collection method. We see that the popularity of FDR paper increases over time in the five fields, gene expression, microbiology, neuroscience, hypothesis testing, and population genetics. However, time lag exists in certain fields. For instance, the field, microbiology, has a 5-year time lag, and the field, population genetics, has a 6-year time lag.
+Similar to what we did by plotting the paper's overall citation trends, we plotted the citation trends within each clusters. We display the citation trends of five clusters in the outCitation network below. This network is obtained by our second data collection method. We see that the popularity of FDR paper increases over time in the five fields, gene expression, microbiology, neuroscience, hypothesis testing, and population genetics. Moreover, we can observe some time lags in certain fields. For instance, the field, microbiology, has a 5-year time lag, and the field, population genetics, has a 6-year time lag.
 
 ![image](/image/citOverYear_clusters_outCitation_(method2).png)
 
