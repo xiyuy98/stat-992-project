@@ -87,7 +87,7 @@ We collected 41067 papers by this method.
 
 ### Overall citation trends by year
 
-We plotted the paper's overall citation trends by year. These trends are extracted and plotted based on the inCitation and outCitation networks. Notice that instead of plotting the paper's citation frequency, we plot the ratios obtained by dividing the number of papers, which is cited by FDR paper, published in a certain year by the total number of published papers in that year. 
+We plotted the paper's overall citation trends by year. These trends are extracted and plotted based on the inCitation and outCitation networks. Notice that instead of plotting the paper's citation frequency, we plot the ratios obtained by dividing the number of papers, which is cited by FDR paper, published in a certain year by the total number of published papers in that year. The plot displayed below shows that FDR paper's popularity steadily increases since its publication.
 
 ![image](/image/citOverYear_total_outCitation_(method2).png)
 
@@ -108,7 +108,7 @@ ggplot(data=citYear_total_out, aes(x=year, y=ratio)) +
 
 #### Find clusters
 
-To find how many clusters are included in the networks, we applied [Vintage Sparse principal component analysis (VSP)](https://arxiv.org/pdf/2004.05387.pdf) to the matrices built from our inCitation and outCitation networks. For example, by applying VSP on the data collected by our second method, we found seven clusters in the inCitation network. 
+To find how many clusters are included in the networks, we applied [Vintage Sparse principal component analysis (VSP)](https://arxiv.org/pdf/2004.05387.pdf) to the matrices built from our inCitation and outCitation networks. For example, by applying VSP on the data collected by our second method, we found seven clusters in the inCitation network. We can see clear L-shape plots in almost every subplot of the VSP results, indicating that setting the number of clusters to seven is a reasonable choice. However, the L-shape in subplot of z1 against z3 is not very clear. Some papers might have mixed-membership, meaning that they are members of both cluster 1 and cluster 3. 
 
 ![image](/image/vsp_in_(method2).png)
 
@@ -202,7 +202,7 @@ keypapers_in = bff(fa_in$Z, A_abs_in, 20) %>% t
 ```
 #### Citation trends within clusters
 
-Similar to what we did by plotting the paper's overall citation trends, we plotted the citation trends within each clusters. We display the citation trends of five clusters in the outCitation network below. This network is obtained by our second data collection method. 
+Similar to what we did by plotting the paper's overall citation trends, we plotted the citation trends within each clusters. We display the citation trends of five clusters in the outCitation network below. This network is obtained by our second data collection method. We see that the popularity of FDR paper increases over time in the five fields, gene expression, microbiology, neuroscience, hypothesis testing, and population genetics. However, time lag exists in certain fields. For instance, the field, microbiology, has a 5-year time lag, and the field, population genetics, has a 6-year time lag.
 
 ![image](/image/citOverYear_clusters_outCitation_(method2).png)
 
