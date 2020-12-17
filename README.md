@@ -6,7 +6,7 @@ Contributors:
 - Xiyu Yang
 - Shuqi Yu
 
-## Navigation Panel:
+## Navigation Panel
 
 * [Background](https://github.com/xiyuy98/stat-992-project#background)
 * [Data](https://github.com/xiyuy98/stat-992-project#data)
